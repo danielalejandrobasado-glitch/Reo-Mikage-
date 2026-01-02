@@ -18,23 +18,23 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/Brauliovh3",
+  "homepage": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-",
   "author": {
     "name": "Duartexv"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Brauliovh3/HATSUNE-MIKU.git"
+    "url": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-"
   },
   "bugs": {
-    "url": "https://github.com/Brauliovh3/HATSUNE-MIKU/issues"
+    "url": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-"
   },
   "license": "MIT-License",
   "dependencies": {
     "@bochilteam/scraper": "^4.2.4",
     "@distube/ytdl-core": "^4.16.12",
     "@vitalets/google-translate-api": "^8.0.0",
-    "@whiskeysockets/baileys": "github:CheirZ/bails",
+    "@whiskeysockets/baileys": "github:ANDERSONTELLO/baileys",
     "acrcloud": "^1.4.0",
     "api-dylux": "^1.7.2",
     "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",

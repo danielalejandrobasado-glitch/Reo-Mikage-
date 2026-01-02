@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url'
 global.botNumber = '' 
 
 global.owner = [
-  ['573135180876', 'DuarteXV', true]
+  ['573135180876', 'DuarteXV']
+  ['51933000214', 'Ander']
 ];
 
 global.mods = []
@@ -22,7 +23,7 @@ global.jadi = 'JadiBots'
 
 global.packname = '👑 MICHAEL KAISER BOT 👑'
 global.botname = '† MICHAEL KAISER †'
-global.wm = '👑◟𝓜𝓲𝓬𝓱𝓪𝓮𝓵 𝓚𝓪𝓲𝓼𝓮𝓻◞👑'
+global.dev = 'Powered bye DuarteXv'
 global.author = '© DuarteXV'
 global.textbot = '👑 Kaiser, el genio absoluto del fútbol alemán.'
 
