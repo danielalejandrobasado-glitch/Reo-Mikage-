@@ -29,9 +29,20 @@ global.textbot = '👑 Kaiser, el genio absoluto del fútbol alemán.'
 
 global.prefix = '!'
 
+
+global.owner = ['573135180876', '51933000214'].map(v => v + '@s.whatsapp.net')
+
+
 global.isOwner = (sender) => {
-  const number = sender.split('@')[0]
-  return global.owner.some(owner => owner[0] === number)
+  const number = sender.replace('@s.whatsapp.net', '')
+  return global.owner.some(owner => owner[0] === number) || 
+         global.creador.some(creator => creator.replace('@s.whatsapp.net', '') === number)
+}
+
+
+global.isCreator = (sender) => {
+  const number = sender.replace('@s.whatsapp.net', '')
+  return global.creador.some(creator => creator.replace('@s.whatsapp.net', '') === number)
 }
 
 let file = fileURLToPath(import.meta.url)
