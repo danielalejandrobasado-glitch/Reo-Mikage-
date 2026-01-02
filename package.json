@@ -1,6 +1,6 @@
 {
-  "name": "Isagi Yoichi",
-  "version": "2.2.6",
+  "name": "bot",
+  "version": "1.0.0",
   "description": "WhatsApp Bot Multi Device",
   "main": "index.js",
   "type": "module",
@@ -14,22 +14,19 @@
     "qr": "node index.js qr",
     "code": "node index.js code",
     "test": "node test.js",
-    "test2": "nodemon index.js",
-    "eslint": "eslint .",
-    "eslintfix": "eslint --fix ."
+    "dev": "nodemon index.js",
+    "install:yarn": "yarn install",
+    "prestart": "yarn install --check-files",
+    "clean": "rm -rf node_modules yarn.lock",
+    "reinstall": "npm run clean && yarn install"
   },
   "homepage": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-",
-  "author": {
-    "name": "Duartexv"
-  },
+  "author": "Duartexv",
   "repository": {
     "type": "git",
     "url": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-"
   },
-  "bugs": {
-    "url": "https://github.com/danielalejandrobasado-glitch/Juego-para-jugar-"
-  },
-  "license": "MIT-License",
+  "license": "MIT",
   "dependencies": {
     "@bochilteam/scraper": "^4.2.4",
     "@distube/ytdl-core": "^4.16.12",
@@ -78,7 +75,6 @@
     "yt-search": "^2.10.3",
     "ytdl-core": "^4.11.5",
     "webp-converter": "*"
-
   },
   "optionalDependencies": {
     "moment-timezone": "^0.5.37",
