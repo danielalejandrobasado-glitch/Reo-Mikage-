@@ -8,14 +8,13 @@ let stiker = false
 let userId = m.sender
 let packstickers = global.db.data.users[userId] || {}
 
-
 let userName = conn.getName(userId)
 let now = new Date()
 let fecha = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })
 let hora = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
 
-let texto1 = packstickers.text1 || `${userName || dev}`
-let texto2 = packstickers.text2 || `${botname}\n${fecha}\n${hora}`
+let texto1 = packstickers.text1 || `╔═════ஜ۩۞۩ஜ═════╗\n𝐍 𝐀 𝐌 𝐄\n${userName || dev}\n╚═════ஜ۩۞۩ஜ═════╝`
+let texto2 = packstickers.text2 || `╔═════ஜ۩۞۩ஜ═════╗\n𝐁 𝐎 𝐓\n${botname}\n${fecha}\n${hora}\n╚═════ஜ۩۞۩ஜ═════╝`
 
 try {
 let q = m.quoted ? m.quoted : m
@@ -24,7 +23,7 @@ let txt = args.join(' ')
 
 if (/webp|image|video/g.test(mime) && q.download) {
 if (/video/.test(mime) && (q.msg || q).seconds > 16)
-return conn.reply(m.chat, '🌸 El video no debe superar *15 segundos* para crear un sello de flor perfecto ✨', m, global.rcanal)
+return conn.reply(m.chat, 'El video no debe superar *15 segundos*', m, global.rcanal)
 let buffer = await q.download()
 await m.react('🌺')
 
