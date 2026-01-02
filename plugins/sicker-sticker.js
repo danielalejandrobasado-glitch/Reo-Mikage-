@@ -34,7 +34,7 @@ stiker = await sticker(buffer, false, marca[0], marca[1])
 let buffer = await sticker(false, args[0], texto1, texto2)
 stiker = buffer
 } else {
-return conn.reply(m.chat, 'Por favor, envia o responde o responde a una imagen para convertirlo en sticker.', m, global.rcanal)
+return conn.reply(m.chat, 'Por favor, envia o responde a una imagen para convertirlo en sticker.', m, global.rcanal)
 }} catch (e) {
 await conn.reply(m.chat, 'Ocurrió un error: ' + e.message + ' ✨', m, global.rcanal)
 await m.react('🌸')
