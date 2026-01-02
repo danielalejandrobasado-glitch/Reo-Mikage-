@@ -9,7 +9,7 @@ exec(`neofetch --stdout`, (error, stdout, stderr) => {
 let child = stdout.toString("utf-8");
 let ssd = child.replace(/Memory:/, "Ram:")
 
-let result = `¡Pong!\n> ⴵ Latencia ${latency.toFixed(4).split(".")[0]}ms${ssd}`
+let result = `*¡Pong!*\n> ⴵ Latency ${latency.toFixed(4).split(".")[0]} ms${ssd}`
 conn.sendMessage(m.chat, { text: result, edit: sentMsg.key }, { quoted: m })
 })
 }
