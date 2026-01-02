@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 global.botNumber = '' 
 
 global.owner = [
-  ['573135180876', 'DuarteXV']
+  ['573135180876', 'DuarteXV'],
   ['51933000214', 'Ander']
 ];
 
