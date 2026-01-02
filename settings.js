@@ -23,7 +23,7 @@ global.jadi = 'JadiBots'
 
 global.packname = '👑 MICHAEL KAISER BOT 👑'
 global.botname = '† MICHAEL KAISER †'
-global.dev = 'Powered bye DuarteXv'
+global.dev = 'Powered by DuarteXv'
 global.author = '© DuarteXV'
 global.textbot = '👑 Kaiser, el genio absoluto del fútbol alemán.'
 
