@@ -26,7 +26,7 @@ global.botname = '† MICHAEL KAISER †'
 global.dev = 'Powered by DuarteXv'
 global.author = '© DuarteXV'
 global.textbot = '👑 Kaiser, el genio absoluto del fútbol alemán.'
-
+global.banner = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767409517799.jpg'
 global.prefix = '!'
 
 
