@@ -4,48 +4,31 @@ let handler = async (m, { conn }) => {
   let name = conn.getName(userId)
   let totalreg = Object.keys(global.db.data.users).length
   const uptime = clockString(process.uptime() * 1000)
-  
   const michaelGif = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767403265037.gif'
-
+  
   let txt = `
- Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
-
+> Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
 ✧˖°⊹ ─────────────── ⊹°˖✧
 ˚ ♡ ⋆｡˚ Tipo ⟢ ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-bot')}
 ˚ ♡ ⋆｡˚ Activo ⟢ ${uptime}
 ˚ ♡ ⋆｡˚ Usuarios ⟢ ${totalreg}
 ˚ ♡ ⋆｡˚ Biblioteca ⟢ Baileys
 ✧˖°⊹ ─────────────── ⊹°˖✧
-
 ☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆
 𖤐 /ping
 𖤐 /sticker
-
 ✧˖°⊹ ─────────────── ⊹°˖✧
 `.trim()
 
-  // Enviar el menú con el anuncio del canal
+
   await conn.sendMessage(m.chat, {
-    text: txt,
+    video: { url: michaelGif },
+    gifPlayback: true,
+    caption: txt,
     contextInfo: {
-      mentionedJid: [m.sender, userId].filter(v => v),
-      externalAdReply: {
-        title: '☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆',
-        body: '⏤͟͞ू⃪𝐁𝕃𝐔𝔼 𝐋𝕆𝐂𝕂 𝐂𝕃𝐔𝔅 𑁯🩵ᰍ',
-        thumbnailUrl: michaelGif,
-        sourceUrl: 'https://whatsapp.com/channel/0029VaW7y8RBP38KTUzNYN1t',
-        mediaType: 1,
-        renderLargerThumbnail: true
-      }
+      mentionedJid: [m.sender, userId].filter(v => v)
     }
   }, { quoted: m })
-
-  // También puedes enviar el GIF como mensaje aparte si quieres
-  // await conn.sendMessage(m.chat, {
-  //   video: { url: michaelGif },
-  //   gifPlayback: true,
-  //   caption: '☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆'
-  // }, { quoted: m })
 }
 
 handler.help = ['menu']
