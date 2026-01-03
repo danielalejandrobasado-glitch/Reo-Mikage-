@@ -25,7 +25,7 @@ if (/webp|image|video/g.test(mime) && q.download) {
 if (/video/.test(mime) && (q.msg || q).seconds > 16)
 return conn.reply(m.chat, 'El video no debe superar *15 segundos*', m, global.rcanal)
 let buffer = await q.download()
-await m.react('🌺')
+await m.react('🌟')
 
 let marca = txt ? txt.split(/[\u2022|]/).map(part => part.trim()) : [texto1, texto2]
 stiker = await sticker(buffer, false, marca[0], marca[1])
@@ -40,7 +40,7 @@ await m.react('👑')
 } finally {
 if (stiker) {
 conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-await m.react('🌟')
+await m.react('👑')
 }}}
 
 handler.help = ['sticker']
