@@ -7,21 +7,9 @@ const michaelGif = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/u
 let handler = async (m, { conn }) => {
   let mentionedJid = m.mentionedJid
   let userId = mentionedJid && mentionedJid[0] ? mentionedJid[0] : m.sender
-  let user = global.db.data.users[userId]
   let name = conn.getName(userId)
   let totalreg = Object.keys(global.db.data.users).length
-  let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
   const uptime = clockString(process.uptime() * 1000)
-
-  // Enviar el GIF de Michael Kaiser primero
-  await conn.sendMessage(m.chat, {
-    video: { url: michaelGif },
-    gifPlayback: true,
-    caption: `☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆`,
-    contextInfo: {
-      mentionedJid: [m.sender]
-    }
-  }, { quoted: m })
 
   let txt = `
 > Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
@@ -46,8 +34,8 @@ let handler = async (m, { conn }) => {
       mentionedJid: [m.sender, userId],
       forwardingScore: 1,
       externalAdReply: {
-        title: channelName,
-        body: 'Presiona aquí para más información',
+        title: `☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆`,
+        body: channelName,
         thumbnailUrl: michaelGif,
         sourceUrl: 'https://whatsapp.com/channel/0029VaW7y8RBP38KTUzNYN1t',
         mediaType: 1,
