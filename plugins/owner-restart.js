@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
 
     try {
-        m.reply('reiniciando socket.\n> espera un momento,puto...')
+        m.reply('➢ Reiniciando socket.\n> espera un momento, puto...')
         setTimeout(() => {
             process.exit(0)
         }, 3000) 

@@ -30,8 +30,8 @@ if (filesDeleted === 0) {
 await conn.reply(m.chat, `${emoji2} La carpeta esta vacía.`, m)
 } else {
 m.react(done)
-await conn.reply(m.chat, `${emoji} Se eliminaron ${filesDeleted} archivos de sesión, excepto el archivo creds.json.`, m)
-conn.reply(m.chat, `${emoji} *¡Hola! ¿logras verme?*`, m)
+await conn.reply(m.chat, `> ➢ Basura eliminada\*BASURA* ${filesDeleted}\n\n> Excepto el archivo creds.json.`, m)
+conn.reply(m.chat, `> ➢ Si me ves eres gay...`, m)
 
 }
 } catch (err) {
