@@ -1,13 +1,11 @@
 let handler = async (m, { conn }) => {
   let mentionedJid = m.mentionedJid
   let userId = mentionedJid && mentionedJid[0] ? mentionedJid[0] : m.sender
-  let name = conn.getName(userId)
   let totalreg = Object.keys(global.db.data.users).length
   const uptime = clockString(process.uptime() * 1000)
 
-
   let txt = `
- Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
+Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
 
 ✧˖°⊹ ─────────────── ⊹°˖✧
 ˚ ♡ ⋆｡˚ Tipo ⟢ ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-bot')}
@@ -22,7 +20,6 @@ let handler = async (m, { conn }) => {
 ✧˖°⊹ ─────────────── ⊹°˖✧
 `.trim()
 
-
   await conn.sendMessage(m.chat, {
     text: txt,
     contextInfo: {
@@ -31,14 +28,12 @@ let handler = async (m, { conn }) => {
         title: botname,
         body: dev,
         thumbnailUrl: banner,
-        sourceUrl: '',
+        sourceUrl: '', 
         mediaType: 1,
         renderLargerThumbnail: true
       }
     }
   }, { quoted: m })
-
-
 }
 
 handler.help = ['menu']
