@@ -89,7 +89,7 @@ handler.all = async function (m) {
     global.namegrupo = '𝕭𝖑𝖚𝖊 𝖑𝖔𝖈𝖐 𝕮𝖑𝖚𝖇'
     global.namecomu = '⏤͟͞ू⃪𝐁𝕃𝐔𝔼 𝐋𝕆𝐂𝕂 𝐂𝕃𝐔𝔹 𑁯🩵ᰍ'
     global.listo = '*Aquí tienes ฅ^•ﻌ•^ฅ*'
-    global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/h4vif1.jpeg')
+    global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767401739958.jpg')
 
     global.canalIdM = ["120363420979328566@newsletter", "120363420979328566@newsletter"]
     global.canalNombreM = ["⏤͟͞ू⃪𝐁𝕃𝐔𝔼 𝐋𝕆𝐂𝕂 𝐂𝕃𝐔𝔹 𑁯🩵ᰍ"]
@@ -131,7 +131,7 @@ handler.all = async function (m) {
     const db = './src/database/db.json'
 
     global.iconCache = global.iconCache || new Map()
-    global.defaultIcon = 'https://files.catbox.moe/l8qiik.jpeg'
+    global.defaultIcon = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767401729660.jpg'
 
     async function loadIconOptimized() {
         const cacheKey = 'daily_icon'
@@ -242,7 +242,7 @@ ${dev}
     }, { quoted: m }
 
     global.icono = [
-        'https://files.catbox.moe/ckanyi.jpg',
+        'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767401717309.jpg',
     ].getRandom()
 
     global.rcanal = {
