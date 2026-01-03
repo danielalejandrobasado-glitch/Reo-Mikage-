@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
   const michaelGif = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767403265037.gif'
 
   let txt = `
-> Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
+ Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
 
 ✧˖°⊹ ─────────────── ⊹°˖✧
 ˚ ♡ ⋆｡˚ Tipo ⟢ ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-bot')}
