@@ -24,11 +24,17 @@ Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
     text: txt,
     contextInfo: {
       mentionedJid: [m.sender, userId].filter(v => v),
+      isForwarded: true,
+      forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363420979328566@newsletter',
+        newsletterName: '⏤͟͞ू⃪𝐁𝕃𝐔𝔼 𝐋𝕆𝐂𝕂 𝐂𝕃𝐔𝔹 𑁯🩵ᰍ',
+        serverMessageId: -1
+      },
       externalAdReply: {
         title: botname,
         body: dev,
         thumbnailUrl: banner,
-        sourceUrl: '', 
+        sourceUrl: 'https://whatsapp.com/channel/0029Vb73g1r1NCrTbefbFQ2T',
         mediaType: 1,
         renderLargerThumbnail: true
       }
