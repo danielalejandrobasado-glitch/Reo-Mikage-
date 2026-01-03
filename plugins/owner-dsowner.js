@@ -8,7 +8,7 @@ var handler = async (m, { conn, usedPrefix }) => {
 if (global.conn.user.jid !== conn.user.jid) {
 return conn.reply(m.chat, `Utiliza este comando directamente en el número principal del Bot.`, m)
 }
-await conn.reply(m.chat, `➢ Eliminando basura...\n> Excepto el archivo creds.json...`, m)
+await conn.reply(m.chat, `➢ Espera un momento...`, m)
 m.react(rwait)
 
 let sessionPath = `./${sessions}/`
