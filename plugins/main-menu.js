@@ -1,3 +1,26 @@
+import fs from 'fs'
+import path from 'path'
+import fetch from 'node-fetch'
+
+// Cache del GIF para evitar descargas repetidas
+let cachedGif = null
+let gifBuffer = null
+
+const downloadGif = async (url) => {
+  try {
+    if (gifBuffer) return gifBuffer // Retornar cache si existe
+    
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('Error al descargar GIF')
+    
+    gifBuffer = await response.buffer()
+    return gifBuffer
+  } catch (error) {
+    console.error('Error descargando GIF:', error)
+    return null
+  }
+}
+
 let handler = async (m, { conn }) => {
   let mentionedJid = m.mentionedJid
   let userId = mentionedJid && mentionedJid[0] ? mentionedJid[0] : m.sender
@@ -20,15 +43,29 @@ let handler = async (m, { conn }) => {
 ✧˖°⊹ ─────────────── ⊹°˖✧
 `.trim()
 
+  try {
 
-  await conn.sendMessage(m.chat, {
-    video: { url: michaelGif },
-    gifPlayback: true,
-    caption: txt,
-    contextInfo: {
-      mentionedJid: [m.sender, userId].filter(v => v)
+    const gif = await downloadGif(michaelGif)
+    
+    if (gif) {
+
+      await conn.sendMessage(m.chat, {
+        video: gif,
+        gifPlayback: true,
+        caption: txt,
+        contextInfo: {
+          mentionedJid: [m.sender, userId].filter(v => v)
+        }
+      }, { quoted: m })
+    } else {
+
+      await m.reply(txt)
     }
-  }, { quoted: m })
+  } catch (error) {
+    console.error('Error enviando menú:', error)
+
+    await m.reply(txt)
+  }
 }
 
 handler.help = ['menu']
