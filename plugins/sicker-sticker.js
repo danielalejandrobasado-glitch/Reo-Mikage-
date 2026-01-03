@@ -36,11 +36,11 @@ stiker = buffer
 return conn.reply(m.chat, 'Por favor, envia o responde a una imagen para convertirlo en sticker.', m, global.rcanal)
 }} catch (e) {
 await conn.reply(m.chat, 'Ocurrió un error: ' + e.message + ' ✨', m, global.rcanal)
-await m.react('🌸')
+await m.react('👑')
 } finally {
 if (stiker) {
 conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-await m.react('💮')
+await m.react('🌟')
 }}}
 
 handler.help = ['sticker']
