@@ -4,30 +4,30 @@ let handler = async (m, { conn }) => {
   let name = conn.getName(userId)
   let totalreg = Object.keys(global.db.data.users).length
   const uptime = clockString(process.uptime() * 1000)
-  const michaelGif = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767403265037.gif'
   
-  let txt = `
-> Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
+  const michaelGif = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767403265037.gif'
+
+  // Enviar el GIF con el menú
+  await conn.sendMessage(m.chat, {
+    video: { url: michaelGif },
+    gifPlayback: true,
+    caption: `
+ Hola @${userId.split('@')[0]}, mi nombre es ${botname} ⸜(。˃ ᴗ ˂ )⸝♡
+
 ✧˖°⊹ ─────────────── ⊹°˖✧
 ˚ ♡ ⋆｡˚ Tipo ⟢ ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-bot')}
 ˚ ♡ ⋆｡˚ Activo ⟢ ${uptime}
 ˚ ♡ ⋆｡˚ Usuarios ⟢ ${totalreg}
 ˚ ♡ ⋆｡˚ Biblioteca ⟢ Baileys
 ✧˖°⊹ ─────────────── ⊹°˖✧
+
 ☆𝑀𝑖𝑐ℎ𝑎𝑒𝑙 𝐾𝑎𝑖𝑠𝑒𝑟☆
 𖤐 /ping
 𖤐 /sticker
+
 ✧˖°⊹ ─────────────── ⊹°˖✧
-`.trim()
-
-
-  await conn.sendMessage(m.chat, {
-    video: { url: michaelGif },
-    gifPlayback: true,
-    caption: txt,
-    contextInfo: {
-      mentionedJid: [m.sender, userId].filter(v => v)
-    }
+`.trim(),
+    mentions: [m.sender, userId].filter(v => v)
   }, { quoted: m })
 }
 
