@@ -16,17 +16,17 @@ global.prems = []
 global.libreria = 'Baileys'
 global.baileys = 'V 6.7.17' 
 global.vs = '1.0.0'
-global.nameqr = '👑 Michael-Kaiser-MD 👑'
-global.namebot = 'MICHAEL KAISER BOT'
+global.nameqr = '👑 Reo-Mikage-MD 👑'
+global.namebot = 'REO MIKAGE BOT'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
 
-global.packname = '👑 MICHAEL KAISER BOT 👑'
-global.botname = '† MICHAEL KAISER †'
+global.packname = '👑 REO MIKAGE BOT 👑'
+global.botname = '† REO MIKAGE †'
 global.dev = 'Powered by DuarteXv'
 global.author = '© DuarteXV'
-global.textbot = '👑 Kaiser, el genio absoluto del fútbol alemán.'
-global.banner = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767409517799.jpg'
+global.textbot = '👑 Mikage, el prodigio absoluto del fútbol japonés.'
+global.banner = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767498774165.jpg'
 global.prefix = '!'
 
 
