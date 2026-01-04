@@ -242,7 +242,7 @@ ${dev}
     }, { quoted: m }
 
     global.icono = [
-        'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767401717309.jpg',
+        'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767498807880.jpg',
     ].getRandom()
 
     global.rcanal = {
