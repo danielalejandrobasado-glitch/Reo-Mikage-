@@ -28,7 +28,7 @@ global.author = '© DuarteXV'
 global.textbot = '👑 Mikage, el prodigio absoluto del fútbol japonés.'
 global.banner = 'https://cdn.hostrta.win/fl/h53m.jpg'
 global.prefix = '!'
-global.welcom1 || 'Bienvenido a la comunidad'
+global.welcom1= 'Bienvenido a la comunidad'
 global.owner = ['573135180876', '51933000214'].map(v => v + '@s.whatsapp.net')
 
 
