@@ -1,5 +1,4 @@
-const { default: makeWASocket, useMultiFileAuthState } = require('@adiwajshing/baileys')
-const fs = require('fs')
+import { makeWASocket, useMultiFileAuthState } from '@adiwajshing/baileys'
 
 // HANDLER ON
 const onHandler = async (m, { conn, from, sender, isAdmin }) => {
