@@ -26,7 +26,7 @@ global.botname = '† REO MIKAGE †'
 global.dev = 'Powered by DuarteXv'
 global.author = '© DuarteXV'
 global.textbot = '👑 Mikage, el prodigio absoluto del fútbol japonés.'
-global.banner = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767566705050.jpg'
+global.banner = 'https://files.catbox.moe/7xl5un.jpg'
 global.prefix = '!'
 
 
