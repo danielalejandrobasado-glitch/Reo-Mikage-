@@ -1,4 +1,4 @@
-import { makeWASocket, useMultiFileAuthState } from '@adiwajshing/baileys'
+import { makeWASocket, useMultiFileAuthState } from '@whiskeysockets/baileys'
 
 // HANDLER !on
 const onHandler = async (m, { conn, from, sender, isAdmin }) => {
@@ -9,12 +9,13 @@ const onHandler = async (m, { conn, from, sender, isAdmin }) => {
     global.botStates = global.botStates || {}
     global.botStates[from] = { enabled: true }
     
-    await conn.sendMessage(from, { text: '✅ *BOT ACTIVADO*\n\nAhora respondo a comandos en este grupo.' })
+    await conn.sendMessage(from, { 
+        text: '✅ *BOT ACTIVADO*\n\nAhora respondo a comandos en este grupo.\nPrefijo: !' 
+    })
 }
 onHandler.command = ['on', 'onmiobot']
 onHandler.admin = true
 onHandler.group = true
-onHandler.help = ['!on - Activa el bot']
 
 // HANDLER !off
 const offHandler = async (m, { conn, from, sender, isAdmin }) => {
@@ -25,16 +26,17 @@ const offHandler = async (m, { conn, from, sender, isAdmin }) => {
     global.botStates = global.botStates || {}
     global.botStates[from] = { enabled: false }
     
-    await conn.sendMessage(from, { text: '🔴 *BOT DESACTIVADO*\n\nUsa !on para reactivar.' })
+    await conn.sendMessage(from, { 
+        text: '🔴 *BOT DESACTIVADO*\n\nUsa *!on* para reactivar.' 
+    })
 }
 offHandler.command = ['off', 'apagar']
 offHandler.admin = true
 offHandler.group = true
-offHandler.help = ['!off - Desactiva el bot']
 
 async function startBot() {
     try {
-        const { state, saveCreds } = await useMultiFileAuthState('session')
+        const { state, saveCreds } = await useMultiFileAuthState('auth_info')
         
         const sock = makeWASocket({
             auth: state,
@@ -45,7 +47,7 @@ async function startBot() {
         sock.ev.on('connection.update', (update) => {
             const { connection, lastDisconnect } = update
             if (connection === 'close') {
-                console.log('Reconectando...')
+                console.log('🔌 Conexión cerrada, reconectando...')
                 setTimeout(startBot, 3000)
             }
             if (connection === 'open') {
@@ -58,8 +60,7 @@ async function startBot() {
             if (!msg.message) return
             
             const text = msg.message.conversation || 
-                         msg.message.extendedTextMessage?.text || 
-                         msg.message.imageMessage?.caption || ''
+                         msg.message.extendedTextMessage?.text || ''
             
             if (!text.startsWith('!')) return
             
@@ -77,9 +78,7 @@ async function startBot() {
                     const metadata = await sock.groupMetadata(from)
                     const participant = metadata.participants.find(p => p.id === sender)
                     isAdmin = participant?.admin === 'admin' || participant?.admin === 'superadmin'
-                } catch (e) {
-                    console.log('Error obteniendo metadata:', e)
-                }
+                } catch (e) {}
             }
             
             // Buscar handler
@@ -95,8 +94,18 @@ async function startBot() {
             // Verificar admin
             if (handler.admin && !isAdmin) {
                 return await sock.sendMessage(from, { 
-                    text: '⚠️ Solo administradores pueden usar este comando.' 
+                    text: '⚠️ *PERMISO DENEGADO*\nSolo administradores pueden usar este comando.' 
                 })
+            }
+            
+            // Verificar si el bot está activo (para otros comandos)
+            if (cmd !== 'on' && cmd !== 'onmiobot') {
+                const botState = global.botStates?.[from]
+                if (botState?.enabled === false) {
+                    return await sock.sendMessage(from, {
+                        text: '🔴 *BOT DESACTIVADO*\nEl bot está desactivado en este grupo.\nUsa *!on* para activarlo.'
+                    })
+                }
             }
             
             // Ejecutar handler
