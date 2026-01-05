@@ -35,7 +35,7 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 let { say } = cfonts
 console.log(chalk.blueBright('\n● Iniciando...'))
-say('REO MIKAGE', {
+say('REO', {
 font: 'simple',
 align: 'left',
 gradient: ['blue', 'white']
