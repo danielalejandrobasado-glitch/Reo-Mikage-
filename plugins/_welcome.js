@@ -34,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
 
         if (!ppUrl) {
-          ppUrl = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767297311338.jpg'
+          ppUrl = 'https://cdn.hostrta.win/fl/zcc7.jpeg'
         }
 
         console.log('📤 Enviando welcome con diseño...')
