@@ -167,7 +167,7 @@ console.log(chalk.bold.white(chalk.bgBlue(`[ ● ]  CÓDIGO BLUE LOCK:`)), chalk
 }}}}
 conn.isInit = false
 conn.well = false
-conn.logger.info(`[ ● ]  K A I S E R  B O T\n`)
+conn.logger.info(`[ ● ]  M I K A G E B O T\n`)
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
@@ -210,7 +210,7 @@ if (connection === "close") {
 if ([401, 440, 428, 405].includes(reason)) {
 console.log(chalk.red(`→ (${code}) › Cierra la session Principal.`))
 }
-console.log(chalk.yellow("→ Reconectando kaiser bot..."))
+console.log(chalk.yellow("→ Reconectando Mikage bot..."))
 await global.reloadHandler(true).catch(console.error)
 }}
 process.on('uncaughtException', console.error)
