@@ -269,7 +269,7 @@ export async function handler(chatUpdate) {
                     const primaryBotId = chat.primaryBot
                     if (name !== "group-banchat.js" && chat?.isBanned && !isROwner) {
                         if (!primaryBotId || primaryBotId === botId) {
-                            const aviso = `El bot *${global.botname}* está desactivado en este grupo\n\n> Un *administrador* puede activarlo con el comando:\n> » *${usedPrefix}bot on*`.trim()
+                            const aviso = `El bot *${botname}* está desactivado en este grupo\n\n> Un *administrador* puede activarlo con el comando:\n> » *${usedPrefix}bot on*`.trim()
                             await m.reply(aviso)
                             return
                         }

@@ -31,6 +31,10 @@ global.prefix = '!'
 global.welcom1 = 'Bienvenido a la comunidad'
 global.owner = ['573135180876', '51933000214'].map(v => v + '@s.whatsapp.net')
 
+global.ch = {
+   ch1: '120363420979328566@newsletter',
+}
+
 
 global.isOwner = (sender) => {
   const number = sender.replace('@s.whatsapp.net', '')
