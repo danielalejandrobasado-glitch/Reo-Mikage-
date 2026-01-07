@@ -1,7 +1,8 @@
 const ApiKey = 'Duarte-zz12'
 
-let handler = async (m, { conn }) => {
-    let type = m.command
+let handler = async (m, { conn, usedPrefix }) => {
+    let type = m.text.slice(usedPrefix.length).trim().split(/\s+/)[0]
+
     let url = `https://rest.alyabotpe.xyz/nsfw/interaction?type=${type}&key=${ApiKey}`
 
     try {
@@ -48,23 +49,7 @@ handler.help = [
 
 handler.tags = ['nsfw']
 
-handler.command = [
-    'blowjob',
-    'yuri',
-    'boobjob',
-    'cum',
-    'fap',
-    'anal',
-    'grabboobs',
-    'footjob',
-    'grope',
-    'undress',
-    'sixnine',
-    'lickpussy',
-    'spank',
-    'fuck',
-    'suckboobs'
-]
+handler.command = handler.help
 
 handler.group = true
 handler.register = true
