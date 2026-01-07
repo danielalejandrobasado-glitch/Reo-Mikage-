@@ -1,4 +1,4 @@
-const ApiKey = 'Duare-zz12'
+const ApiKey = 'Duarte-zz12'
 
 let handler = async (m, { conn }) => {
     let type = m.command
