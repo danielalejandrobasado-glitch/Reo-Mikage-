@@ -47,7 +47,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
               newsletterJid: global.ch.ch1,
-              newsletterName: '🛡️ FORTALEZA DEL ESCUDO',
+              newsletterName: '「🛡️」𝐍𝐀𝐎𝐅𝐔𝐌𝐈 𝐁𝐎𝐓「⚔️」',
               serverMessageId: -1
             },
             externalAdReply: {
