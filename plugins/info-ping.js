@@ -23,6 +23,6 @@ conn.sendMessage(m.chat, { text: result, edit: sentMsg.key }, { quoted: m })
 }
 handler.help = ['ping']
 handler.tags = ['info']
-handler.command = ['ping', 'evaluardefensas', 'estadoescudo']
+handler.command = ['ping','p']
 
 export default handler
