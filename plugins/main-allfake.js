@@ -131,7 +131,7 @@ handler.all = async function (m) {
     const db = './src/database/db.json'
 
     global.iconCache = global.iconCache || new Map()
-    global.defaultIcon = 'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767498807880.jpg'
+    global.defaultIcon = 'https://cdn.hostrta.win/fl/tkze.jpg'
 
     async function loadIconOptimized() {
         const cacheKey = 'daily_icon'
@@ -242,7 +242,7 @@ ${dev}
     }, { quoted: m }
 
     global.icono = [
-        'https://raw.githubusercontent.com/ANDERSONARRUE/Img.2/main/upload_1767498807880.jpg',
+        'https://cdn.hostrta.win/fl/kv3w.jpg',
     ].getRandom()
 
     global.rcanal = {
