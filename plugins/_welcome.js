@@ -15,10 +15,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
     if (chat.welcome === undefined) chat.welcome = true
     if (chat.welcome === false && chat.welcome !== true) chat.welcome = true
 
-    console.log(`🔍 Estado welcome para ${m.chat}:`, chat.welcome)
+    console.log(`🛡️ Estado defensa para ${m.chat}:`, chat.welcome)
 
     if (!chat.welcome) {
-      console.log('❌ Welcome desactivado, saltando...')
+      console.log('🛡️ Defensas desactivadas, ignorando...')
       return true
     }
 
@@ -30,14 +30,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
         try {
           ppUrl = await conn.profilePictureUrl(user, 'image').catch(() => null)
         } catch (e) {
-          console.log('Error obteniendo foto de perfil:', e)
+          console.log('Error obteniendo insignia del guerrero:', e)
         }
 
         if (!ppUrl) {
           ppUrl = 'https://cdn.hostrta.win/fl/zcc7.jpeg'
         }
 
-        console.log('📤 Enviando welcome con diseño...')
+        console.log('⚔️ Desplegando protocolo de bienvenida...')
 
         await conn.sendMessage(jid, {
           text: text,
@@ -47,12 +47,12 @@ export async function before(m, { conn, participants, groupMetadata }) {
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
               newsletterJid: global.ch.ch1,
-              newsletterName: '💎 𝐑𝐄𝐎 𝐌𝐈𝐊𝐀𝐆𝐄',
+              newsletterName: '🛡️ FORTALEZA DEL ESCUDO',
               serverMessageId: -1
             },
             externalAdReply: {
-              title: `❀ ${botname} ☆`,
-              body: `✧ ${groupSize} miembros activos`,
+              title: `🛡️ ${botname} ☆`,
+              body: `⚔️ ${groupSize} guerreros activos`,
               thumbnailUrl: ppUrl,
               mediaType: 1,
               renderLargerThumbnail: true
@@ -61,17 +61,17 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }, { quoted })
 
       } catch (err) {
-        console.log('sendSingleWelcome error:', err)
+        console.log('Error en protocolo de bienvenida:', err)
         return await conn.reply(jid, text, quoted, { mentions: [user] })
       }
     }
 
     if (m.messageStubType === 27) {
-      console.log('🎉 Nuevo usuario detectado (tipo 27)')
+      console.log('🛡️ Nuevo aliado detectado en la fortaleza')
 
       const users = m.messageStubParameters || []
       if (users.length === 0) {
-        console.log('⚠️ No hay usuarios en messageStubParameters')
+        console.log('⚠️ No se detectaron guerreros en los parámetros')
         return true
       }
 
@@ -80,36 +80,36 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
         const mentionTag = '@' + user.replace(/@.+/, '')
 
-        const welcomeText = `❀☆✯♡۞❃✦✧➳↷✦
+        const welcomeText = `⚔️☆✧🛡️✦♡❃۞➳↷✦
 
-❃ ━━━━━━━━━━━━━━━━ ❃
-       ✧ 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 ✧
-❃ ━━━━━━━━━━━━━━━━ ❃
+🛡️ ━━━━━━━━━━━━━━━━ 🛡️
+       ✧ 𝐍𝐔𝐄𝐕𝐎 𝐆𝐔𝐄𝐑𝐑𝐄𝐑𝐎 ✧
+🛡️ ━━━━━━━━━━━━━━━━ 🛡️
 
-☆ Usuario: ${mentionTag}
-✯ Grupo: ${groupMetadata?.subject || 'Sin nombre'}
-✦ Miembros: ${groupSize}
-♡ ${global.welcom1 || 'Bienvenido a la comunidad'}
+☆ Guerrero: ${mentionTag}
+✧ Fortaleza: ${groupMetadata?.subject || 'Sin nombre'}
+✦ Aliados: ${groupSize}
+♡ ${global.welcom1 || 'Tu escudo nos protege'}
 
-۞ Recomendaciones:
-❀ Respeta a los demás
-❀ No envíes spam
-❀ Lee las reglas
-❀ Disfruta tu estadía
+🛡️ Código de honor:
+❀ Defiende a tus compañeros
+❀ No traiciones la confianza
+❀ Sigue las leyes de la fortaleza
+❀ Lucha con honor
 
 ✧━━━━━━━━━━━━━━━━✧
-   💎 𝐑𝐄𝐎 𝐌𝐈𝐊𝐀𝐆𝐄
+   🛡️ 𝐄𝐒𝐂𝐔𝐃𝐎 𝐃𝐄 𝐋𝐀 𝐈𝐑𝐀
 ✧━━━━━━━━━━━━━━━━✧`
 
         await sendSingleWelcome(m.chat, welcomeText, user, m)
-        console.log(`✅ Welcome enviado a ${mentionTag}`)
+        console.log(`✅ Protocolo activado para ${mentionTag}`)
         await new Promise(resolve => setTimeout(resolve, 1000))
       }
       return true
     }
 
     if (m.messageStubType === 28 || m.messageStubType === 32) {
-      console.log(`👋 Usuario salió (tipo ${m.messageStubType})`)
+      console.log(`🛡️ Guerrero abandona la fortaleza (tipo ${m.messageStubType})`)
 
       const users = m.messageStubParameters || []
       if (users.length === 0) return true
@@ -119,27 +119,28 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
         const mentionTag = '@' + user.replace(/@.+/, '')
 
-        const byeText = `❀☆✯♡۞❃✦✧➳↷✦
+        const byeText = `⚔️☆✧🛡️✦♡❃۞➳↷✦
 
-✦ ━━━━━━━━━━━━━━━━ ✦
-       ♡ 𝐀𝐃𝐈𝐎𝐒 ♡
-✦ ━━━━━━━━━━━━━━━━ ✦
+🛡️ ━━━━━━━━━━━━━━━━ 🛡️
+       ✧ 𝐇𝐀𝐒𝐓𝐀 𝐋𝐔𝐄𝐆𝐎 ✧
+🛡️ ━━━━━━━━━━━━━━━━ 🛡️
 
-☆ Usuario: ${mentionTag}
-✯ Grupo: ${groupMetadata?.subject || 'Sin nombre'}
-❃ ${global.welcom2 || 'Gracias por tu tiempo'}
+☆ Guerrero: ${mentionTag}
+✧ Fortaleza: ${groupMetadata?.subject || 'Sin nombre'}
+❃ ${global.welcom2 || 'Tu escudo siempre será recordado'}
 
-۞ Nota:
-❀ Esperamos verte pronto
-❀ Siempre serás bienvenido
-❀ Que tengas buen día
+🛡️ Palabras de despedida:
+❀ Que tu camino esté protegido
+❀ Las puertas siempre estarán abiertas
+❀ Lucha con honor en tu próximo destino
+❀ Que el escudo te guíe
 
 ✧━━━━━━━━━━━━━━━━✧
-   💎 𝐑𝐄𝐎 𝐌𝐈𝐊𝐀𝐆𝐄
+   🛡️ 𝐄𝐒𝐂𝐔𝐃𝐎 𝐃𝐄 𝐋𝐀 𝐈𝐑𝐀
 ✧━━━━━━━━━━━━━━━━✧`
 
         await sendSingleWelcome(m.chat, byeText, user, m)
-        console.log(`✅ Goodbye enviado a ${mentionTag}`)
+        console.log(`✅ Despedida honrosa para ${mentionTag}`)
         await new Promise(resolve => setTimeout(resolve, 1000))
       }
       return true
@@ -148,7 +149,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     return true
 
   } catch (e) {
-    console.error('plugins/_welcome error', e)
+    console.error('🛡️ Error en protocolos de la fortaleza', e)
     return true
   }
 }
