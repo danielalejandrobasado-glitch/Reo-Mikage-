@@ -6,9 +6,9 @@ import path from 'path'
 var handler = async (m, { conn, usedPrefix }) => {
 
 if (global.conn.user.jid !== conn.user.jid) {
-return conn.reply(m.chat, `Utiliza este comando directamente en el número principal del Bot.`, m)
+return conn.reply(m.chat, `🛡️ Este comando solo puede ser utilizado por el Héroe del Escudo.`, m)
 }
-await conn.reply(m.chat, `➢ Espera un momento...`, m)
+await conn.reply(m.chat, `🛡️ Preparando el contraataque...`, m)
 m.react(rwait)
 
 let sessionPath = `./${sessions}/`
@@ -16,7 +16,7 @@ let sessionPath = `./${sessions}/`
 try {
 
 if (!existsSync(sessionPath)) {
-return await conn.reply(m.chat, `${emoji} La carpeta está vacía.`, m)
+return await conn.reply(m.chat, `${emoji} El campo de batalla ya está limpio.`, m)
 }
 let files = await fs.readdir(sessionPath)
 let filesDeleted = 0
@@ -27,23 +27,22 @@ filesDeleted++;
 }
 }
 if (filesDeleted === 0) {
-await conn.reply(m.chat, `${emoji2} La carpeta esta vacía.`, m)
+await conn.reply(m.chat, `${emoji2} No hay amenazas que eliminar.`, m)
 } else {
 m.react(done)
-await conn.reply(m.chat, `> ➢ Basura eliminada » ${filesDeleted}\n> Excepto el archivo creds.json.`, m)
-conn.reply(m.chat, `> ➢ Si me ves eres puto...`, m)
+await conn.reply(m.chat, `> 🛡️ Contraataque completado » ${filesDeleted} vulnerabilidades eliminadas\n> El núcleo de defensa (creds.json) permanece intacto.`, m)
+conn.reply(m.chat, `> 🛡️ El escudo protege lo que debe ser protegido...`, m)
 
 }
 } catch (err) {
 console.error('Error al leer la carpeta o los archivos de sesión:', err);
-await conn.reply(m.chat, `${msm} Ocurrió un fallo.`, m)
+await conn.reply(m.chat, `${msm} ¡La defensa ha fallado!`, m)
 }
 
 }
 handler.help = ['dsowner']
 handler.tags = ['owner']
-handler.command = ['delai', 'dsowner', 'clearallsession']
+handler.command = ['dsowner',]
 handler.rowner = true;
 
 export default handler
-
