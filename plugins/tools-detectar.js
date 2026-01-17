@@ -3,44 +3,44 @@ import path from 'path'
 
 var handler = async (m, { usedPrefix, command }) => {
     try {
-        await m.react('🕒') 
+        await m.react('🛡️') 
         conn.sendPresenceUpdate('composing', m.chat)
 
         const pluginsDir = './plugins'
 
         const files = fs.readdirSync(pluginsDir).filter(file => file.endsWith('.js'))
 
-        let response = `⚽️ *Revisión de Syntax Errors:*\n\n`
-        let hasErrors = false
+        let response = `🛡️ *Inspección del Escudo de la Ira:*\n\n`
+        let threatsDetected = false
 
         for (const file of files) {
             try {
                 await import(path.resolve(pluginsDir, file))
             } catch (error) {
-                hasErrors = true
+                threatsDetected = true
                 const stackLines = error.stack.split('\n')
 
                 const errorLineMatch = stackLines[0].match(/:(\d+):\d+/) 
                 const errorLine = errorLineMatch ? errorLineMatch[1] : 'Desconocido'
 
-                response += `⚠︎ *Error en:* ${file}\n\n> ● Mensaje: ${error.message}\n> ● Número de línea: ${errorLine}\n\n`
+                response += `⚔️ *Amenaza neutralizada en:* ${file}\n\n> ● Vulnerabilidad: ${error.message}\n> ● Punto débil (línea): ${errorLine}\n\n`
             }
         }
 
-        if (!hasErrors) {
-            response += '⚽️ ¡Todo está en orden! No se detectaron errores de sintaxis'
+        if (!threatsDetected) {
+            response += '🛡️ ¡El reino está seguro! No se encontraron vulnerabilidades en las defensas'
         }
 
         await conn.reply(m.chat, response, m)
         await m.react('✅')
     } catch (err) {
-        await m.react('✖️') 
-        await conn.reply(m.chat, `⚠︎ Ocurrió un error: ${err.message}`, m)
+        await m.react('💢') 
+        await conn.reply(m.chat, `🛡️ ¡Defensa fallida!: ${err.message}`, m)
     }
 }
 
-handler.command = ['detectarsyntax', 'detectar']
-handler.help = ['detectarsyntax']
+handler.command = ['inspeccionar', 'detectar']
+handler.help = ['inspeccionar']
 handler.tags = ['tools']
 handler.rowner = true
 
