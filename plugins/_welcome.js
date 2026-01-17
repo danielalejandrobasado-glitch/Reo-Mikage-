@@ -34,7 +34,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
         }
 
         if (!ppUrl) {
-          ppUrl = 'https://cdn.hostrta.win/fl/zcc7.jpeg'
+          ppUrl = 'https://cdn.hostrta.win/fl/g3x7.jpg'
         }
 
         console.log('⚔️ Desplegando protocolo de bienvenida...')
