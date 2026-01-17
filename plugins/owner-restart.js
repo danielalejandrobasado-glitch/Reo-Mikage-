@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
 
     try {
-        m.reply('➢ Reiniciando socket.\n> espera un momento, puto...')
+        m.reply('🛡️ Reiniciando las defensas del reino.\n> El escudo se fortalece, mantente firme...')
         setTimeout(() => {
             process.exit(0)
         }, 3000) 
@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 handler.help = ['restart']
 handler.tags = ['owner']
-handler.command = ['restart', 'reiniciar'] 
+handler.command = ['restart'] 
 handler.rowner = true
 
 export default handler
