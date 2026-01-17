@@ -13,8 +13,8 @@ let now = new Date()
 let fecha = now.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })
 let hora = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
 
-let texto1 = packstickers.text1 || `╔═════ஜ۩۞۩ஜ═════╗\n𝐍 𝐀 𝐌 𝐄\n${userName || dev}`
-let texto2 = packstickers.text2 || `𝐁 𝐎 𝐓\n${botname}\n${fecha}\n${hora}\n╚═════ஜ۩۞۩ஜ═════╝`
+let texto1 = packstickers.text1 || `🛡️═════ஜ۩۞۩ஜ═════╗\n𝗡 𝗢 𝗠 𝗕𝗥𝗘\n${userName || dev}`
+let texto2 = packstickers.text2 || `𝗦𝗘𝗟𝗟𝗢 𝗗𝗘𝗟 𝗛𝗘𝗥𝗢𝗘\n${botname}\n${fecha}\n${hora}\n╚═════ஜ۩۞۩ஜ═════🛡️`
 
 try {
 let q = m.quoted ? m.quoted : m
@@ -23,9 +23,9 @@ let txt = args.join(' ')
 
 if (/webp|image|video/g.test(mime) && q.download) {
 if (/video/.test(mime) && (q.msg || q).seconds > 16)
-return conn.reply(m.chat, 'El video no debe superar *15 segundos*', m, global.rcanal)
+return conn.reply(m.chat, '🛡️ El registro de batalla no debe superar *15 segundos*', m, global.rcanal)
 let buffer = await q.download()
-await m.react('🌟')
+await m.react('⚔️')
 
 let marca = txt ? txt.split(/[\u2022|]/).map(part => part.trim()) : [texto1, texto2]
 stiker = await sticker(buffer, false, marca[0], marca[1])
@@ -33,19 +33,19 @@ stiker = await sticker(buffer, false, marca[0], marca[1])
 let buffer = await sticker(false, args[0], texto1, texto2)
 stiker = buffer
 } else {
-return conn.reply(m.chat, 'Por favor, envia o responde a una imagen para convertirlo en sticker.', m, global.rcanal)
+return conn.reply(m.chat, '🛡️ Por favor, presenta una imagen o registro visual para convertirlo en sello del héroe.', m, global.rcanal)
 }} catch (e) {
-await conn.reply(m.chat, 'Ocurrió un error: ' + e.message + ' ✨', m, global.rcanal)
-await m.react('👑')
+await conn.reply(m.chat, '🛡️ La defensa ha fallado: ' + e.message, m, global.rcanal)
+await m.react('💢')
 } finally {
 if (stiker) {
 conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-await m.react('👑')
+await m.react('✅')
 }}}
 
 handler.help = ['sticker']
 handler.tags = ['sticker']
-handler.command = ['s', 'sticker']
+handler.command = ['s', 'sticker', 'sellobatalla']
 
 export default handler
 
