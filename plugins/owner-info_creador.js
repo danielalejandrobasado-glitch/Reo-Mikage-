@@ -1,18 +1,12 @@
 import PhoneNumber from 'awesome-phonenumber';
 
-let handler = async (m, { conn }) => {
+let handler = async (m, { conn, usedPrefix }) => {
     await m.react('👋');
-    
-    let creatorNumber = '573135180876'; // Colombia
-    let adminNumber = '526679796825'; // México
-    
-    let creatorFormatted = PhoneNumber('+' + creatorNumber).getNumber('international');
-    let adminFormatted = PhoneNumber('+' + adminNumber).getNumber('international');
     
     let mensaje = `*⚛ CONTACTOS DEL BOT ⚛*\n\n`
     
     let botones = [
-        { buttonId: `${usedPrefix}owner`, buttonText: { displayText: '👑 CREADOR' }, type: 1 },
+        { buttonId: `${usedPrefix}creador`, buttonText: { displayText: '👑 CREADOR' }, type: 1 },
         { buttonId: `${usedPrefix}admin`, buttonText: { displayText: '⚛ ADMIN' }, type: 1 }
     ]
     
@@ -30,7 +24,7 @@ handler.help = ["owner"];
 handler.tags = ["info"];
 handler.command = ['owner', 'creador', 'dueño', 'contactos'];
 
-// Handler para botón 1: Creador
+// Handler para el botón CREADOR
 let handlerCreator = async (m, { conn }) => {
     let creatorNumber = '573135180876';
     let creatorFormatted = PhoneNumber('+' + creatorNumber).getNumber('international');
@@ -50,7 +44,7 @@ END:VCARD`.trim();
     }, { quoted: m });
 }
 
-// Handler para botón 2: Administrador
+// Handler para el botón ADMIN
 let handlerAdmin = async (m, { conn }) => {
     let adminNumber = '526679796825';
     let adminFormatted = PhoneNumber('+' + adminNumber).getNumber('international');
@@ -70,6 +64,9 @@ END:VCARD`.trim();
     }, { quoted: m });
 }
 
-// Exportar handlers
-export { handlerCreator, handlerAdmin };
+// Command handlers para los botones
+handlerCreator.command = ['creador'];
+handlerAdmin.command = ['admin'];
+
 export default handler;
+export { handlerCreator, handlerAdmin };
