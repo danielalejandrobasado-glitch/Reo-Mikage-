@@ -30,6 +30,9 @@ global.textbot = '🛡️ Naofumi Iwatani, el Héroe del Escudo.'
 global.banner = 'https://cdn.hostrta.win/fl/39kd.jpg'
 global.prefix = '!'
 global.welcom1 = 'Bienvenido a la comunidad'
+global.emoji = '📜'
+global.emoji2 = '⚛'
+global.emoji3 = '🛡'
 global.ownerNumbers = ['573135180876', '51933000214', '573229506110'].map(v => v + '@s.whatsapp.net')
 
 global.ch = {
