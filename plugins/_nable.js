@@ -59,13 +59,13 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       type = args[0].toLowerCase()
 
       if (!isValidFunction(type)) {
-        return conn.reply(m.chat, `❌ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}enable* sin parámetros para ver las funciones disponibles.`, m)
+        return conn.reply(m.chat, `🛡️ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}enable* sin parámetros para ver las funciones disponibles.`, m)
       }
 
       isEnable = true
     } else {
       const funcionesDisponibles = [
-        '⚽ **FUNCIONES DISPONIBLES PARA ACTIVAR:**\n',
+        '🛡️ **FUNCIONES DISPONIBLES PARA ACTIVAR:**\n',
         '┌─⊷ **EQUIPO**',
         '│ • welcome/bienvenida - Mensaje de bienvenida',
         '│ • antibot/antibots - Anti bots',
@@ -102,13 +102,13 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       type = args[0].toLowerCase()
 
       if (!isValidFunction(type)) {
-        return conn.reply(m.chat, `❌ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}disable* sin parámetros para ver las funciones disponibles.`, m)
+        return conn.reply(m.chat, `🛡️ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}disable* sin parámetros para ver las funciones disponibles.`, m)
       }
 
       isEnable = false
     } else {
       const funcionesDisponibles = [
-        '⚽ **FUNCIONES DISPONIBLES PARA DESACTIVAR:**\n',
+        '🛡️ **FUNCIONES DISPONIBLES PARA DESACTIVAR:**\n',
         '┌─⊷ **EQUIPO**',
         '│ • welcome/bienvenida - Mensaje de bienvenida',
         '│ • antibot/antibots - Anti bots',
@@ -143,22 +143,22 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   } else if (args[0] === 'on' || args[0] === 'enable') {
 
     if (!isValidFunction(type)) {
-      return conn.reply(m.chat, `❌ *Error:* La función "*${type}*" no existe.\n\n> Funciones disponibles: ${validFunctions.filter((f, i, arr) => arr.indexOf(f) === i).slice(0, 10).join(', ')}...`, m)
+      return conn.reply(m.chat, `🛡️ *Error:* La función "*${type}*" no existe.\n\n> Funciones disponibles: ${validFunctions.filter((f, i, arr) => arr.indexOf(f) === i).slice(0, 10).join(', ')}...`, m)
     }
     isEnable = true;
   } else if (args[0] === 'off' || args[0] === 'disable') {
 
     if (!isValidFunction(type)) {
-      return conn.reply(m.chat, `❌ *Error:* La función "*${type}*" no existe.\n\n> Funciones disponibles: ${validFunctions.filter((f, i, arr) => arr.indexOf(f) === i).slice(0, 10).join(', ')}...`, m)
+      return conn.reply(m.chat, `🛡️ *Error:* La función "*${type}*" no existe.\n\n> Funciones disponibles: ${validFunctions.filter((f, i, arr) => arr.indexOf(f) === i).slice(0, 10).join(', ')}...`, m)
     }
     isEnable = false
   } else {
 
     if (!isValidFunction(type)) {
-      return conn.reply(m.chat, `❌ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}enable* para ver las funciones disponibles.`, m)
+      return conn.reply(m.chat, `🛡️ *Error:* La función "*${type}*" no existe.\n\n> Use *${usedPrefix}enable* para ver las funciones disponibles.`, m)
     }
-    const estado = isEnable ? '✓ Activado' : '✗ Desactivado'
-    return conn.reply(m.chat, `⚽ Un capitán puede activar o desactivar el *${command}* utilizando:\n\n> ✐ *${usedPrefix}${command} on* para activar.\n> ✐ *${usedPrefix}${command} off* para desactivar.\n> ✐ *${usedPrefix}enable ${command}* para activar.\n> ✐ *${usedPrefix}disable ${command}* para desactivar.\n\n✧ Estado actual » *${estado}*`, m, global.rcanal)
+    const estado = isEnable ? '🛡️ Activado' : '❌ Desactivado'
+    return conn.reply(m.chat, `🛡️ Un capitán puede activar o desactivar el *${command}* utilizando:\n\n> 🛡️ *${usedPrefix}${command} on* para activar.\n> 🛡️ *${usedPrefix}${command} off* para desactivar.\n> 🛡️ *${usedPrefix}enable ${command}* para activar.\n> 🛡️ *${usedPrefix}disable ${command}* para desactivar.\n\n🛡️ Estado actual » *${estado}*`, m, global.rcanal)
   }
 
   switch (type) {
@@ -255,16 +255,16 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         }
       }
       chat.autoresponder = isEnable
-      
+
       // AÑADIDO: Controlar ISAGI_ACTIVE
       if (typeof global.ISAGI_ACTIVE !== 'undefined') {
         global.ISAGI_ACTIVE = isEnable
       }
-      
+
       // AÑADIDO: Enviar mensaje cuando se desactiva
       if (!isEnable && m.chat) {
         await conn.sendMessage(m.chat, {
-          text: `⚽ La función *autoresponder* se *desactivó* para este equipo`
+          text: `🛡️ La función *autoresponder* se *desactivó* para este equipo`
         }, { quoted: m })
       }
       break
@@ -342,7 +342,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
 
     case 'antilink':
       if (!m.isGroup) {
-        return conn.reply(m.chat, '⚽ Este comando debe usarse dentro del equipo que desea configurar. Use el comando en el equipo objetivo.', m)
+        return conn.reply(m.chat, '🛡️ Este comando debe usarse dentro del equipo que desea configurar. Use el comando en el equipo objetivo.', m)
       }
       if (!(isAdmin || isOwner)) {
         global.dfail('admin', m, conn)
@@ -353,7 +353,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
 
     case 'antilink2':
       if (!m.isGroup) {
-        return conn.reply(m.chat, '⚽ Este comando debe usarse dentro del equipo que desea configurar. Use el comando en el equipo objetivo.', m)
+        return conn.reply(m.chat, '🛡️ Este comando debe usarse dentro del equipo que desea configurar. Use el comando en el equipo objetivo.', m)
       }
       if (!(isAdmin || isOwner)) {
         global.dfail('admin', m, conn)
@@ -431,7 +431,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
     chat[dbKey] = isEnable
   }
 
-  conn.reply(m.chat, `⚽ La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este Bot' : isUser ? '' : 'para este equipo'}`, m, rcanal);
+  conn.reply(m.chat, `🛡️ La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este Bot' : isUser ? '' : 'para este equipo'}`, m, rcanal);
 };
 
 handler.help = ['welcome', 'bienvenida', 'antiprivado', 'antiprivate', 'restrict', 'restringir', 'autolevelup', 'autonivel', 'antibot', 'antibots', 'autoaceptar', 'aceptarauto', 'autorechazar', 'rechazarauto', 'autoresponder', 'autorespond', 'antisubbots', 'antibot2', 'modoadmin', 'soloadmin', 'reaction', 'reaccion', 'nsfw', 'modohorny', 'antispam', 'jadibotmd', 'modejadibot', 'subbots', 'detect', 'avisos', 'antilink', 'antilink2', 'antifake', 'antiarabes', 'antitoxic', 'audios', 'enable', 'disable']
